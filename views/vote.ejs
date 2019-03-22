@@ -74,7 +74,7 @@
         $("#delete").on("click", function(){
         $.ajax({
           method: "DELETE",
-          url:"/polls/<%= poll.id %>/delete"
+          url:"/polls/<%= poll.id %>"
         }).done((result) => {
           window.location = "/polls"
         });
