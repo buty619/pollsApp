@@ -24,20 +24,20 @@
               <h5><%= poll.name %></h5>
               <p><%= poll.description %></p>
               <form>
+                <p><%=poll.options.option1.text%></p>
                 <div class="progress m-2">
-                    <p>poll.options.option1.text</p>
                     <div class="progress-bar" role="progressbar" style="width: <%=(poll.options.option1.votes/(poll.options.option1.votes+poll.options.option2.votes+poll.options.option3.votes+poll.options.option4.votes))*100 %>%;"><%=poll.options.option1.votes%> - <%=((poll.options.option1.votes/(poll.options.option1.votes+poll.options.option2.votes+poll.options.option3.votes+poll.options.option4.votes))*100).toFixed(0) %>%</div>
                 </div>
+                <p><%=poll.options.option2.text%></p>
                 <div class="progress m-2">
-                    <p>poll.options.option2.text</p>
                     <div class="progress-bar" role="progressbar" style="width: <%=(poll.options.option2.votes/(poll.options.option1.votes+poll.options.option2.votes+poll.options.option3.votes+poll.options.option4.votes))*100 %>%;"><%=poll.options.option2.votes%> - <%=((poll.options.option2.votes/(poll.options.option1.votes+poll.options.option2.votes+poll.options.option3.votes+poll.options.option4.votes))*100).toFixed(0) %>%</div>
                 </div>
+                <p><%=poll.options.option3.text%></p>
                 <div class="progress m-2">
-                    <p>poll.options.option3.text</p>
                     <div class="progress-bar" role="progressbar" style="width: <%=(poll.options.option3.votes/(poll.options.option1.votes+poll.options.option2.votes+poll.options.option3.votes+poll.options.option4.votes))*100 %>%;"><%=poll.options.option3.votes%> - <%=((poll.options.option3.votes/(poll.options.option1.votes+poll.options.option2.votes+poll.options.option3.votes+poll.options.option4.votes))*100).toFixed(0) %>%</div>
                 </div>
+                <p><%=poll.options.option4.text%></p>
                 <div class="progress m-2">
-                    <p>poll.options.option4.text</p>
                     <div class="progress-bar" role="progressbar" style="width: <%=(poll.options.option4.votes/(poll.options.option1.votes+poll.options.option2.votes+poll.options.option3.votes+poll.options.option4.votes))*100 %>%;"><%=poll.options.option4.votes%> - <%=((poll.options.option4.votes/(poll.options.option1.votes+poll.options.option2.votes+poll.options.option3.votes+poll.options.option4.votes))*100).toFixed(0) %>%</div>
                 </div>                
                 <div class="d-flex justify-content-end mt-4 pt-4 border-top">
