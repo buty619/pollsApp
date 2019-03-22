@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Magic Polls</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="">
+    <link rel="stylesheet" href="static/style.css">
+    <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.3.1.min.js"></script>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  </head>
+  <body>
+    <nav class="navbar navbar-dark bg-dark">
+        <div class="navbar-brand">Magic Polls</div>
+        <div class="d-flex justify-content-end">
+            <a class="nav-link" href="/logOut">Log Out</a>
+        </div>
+    </nav>    
+    <div class="container mt-4">
+      <div class="card text-white bg-dark mb-3" style="max-width: 100%;">
+          <div class="card-header d-flex justify-content-between">
+          <h2>Vote</h2>
+          <i id="delete" class="fas fa-trash-alt"></i>
+          </div>
+          <div class="card-body">
+              <h5><%= poll.name %></h5>
+              <p><%= poll.description %></p>
+              <form action="/polls/<%=poll._id%>/result" method="get">
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="Radios" id="Radios1" value="option1" checked>
+                    <label class="form-check-label" for="Radios1">
+                      <%=poll.options.option1.texto%>
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="Radios" id="Radios2" value="option2" checked>
+                    <label class="form-check-label" for="Radios2">
+                      <%=poll.options.option2.texto%>
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="Radios" id="Radios3" value="option3" checked>
+                    <label class="form-check-label" for="Radios3">
+                      <%=poll.options.option3.texto%>
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="Radios" id="Radios4" value="option4" checked>
+                    <label class="form-check-label" for="Radios4">
+                      <%=poll.options.option4.texto%>
+                    </label>
+                </div>
+                <div class="d-flex justify-content-between mt-4 pt-4 border-top">
+                    <a class="link text-white" href="/polls">Cancel</a>
+                    <button class="btn btn-light my-2 my-sm-0" type="submit">Vote</button>
+                </div>   
+              </form>
+          </div>
+        </div>
+    </div>
+    <script src="static/app.js"></script>
+    <script>
+        $("form").on("submit", function(e){
+          $.ajax({
+            method: "PATCH",
+            url:"/polls/<%= poll.id %>/vote",
+            data: $(this).serialize()
+          }).done((result) => {
+            window.location = "/polls/<%=poll._id%>/result"
+          });
+        });
+        $("#delete").on("click", function(){
+        $.ajax({
+          method: "DELETE",
+          url:"/polls/<%= poll.id %>/delete"
+        }).done((result) => {
+          window.location = "/polls"
+        });
+      });
+      </script>
+  </body>
+</html>

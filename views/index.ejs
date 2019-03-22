@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Magic Polls</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="">
+    <link rel="stylesheet" href="static/style.css">
+    <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.3.1.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  </head>
+  <body>
+    <nav class="navbar navbar-dark bg-dark">
+        <div class="navbar-brand">Magic Polls</div>
+        <div class="d-flex justify-content-end">
+            <a class="nav-link" href="/register">Register</a>
+            <form class="form-inline" action="/logIn" method="get">
+              <button class="btn btn-outline-success my-2 my-sm-0" type="submit">LogIn</button>
+            </form>
+        </div>
+    </nav>
+    
+    <div class="continer mt-4 ml-4 mr-4">
+      <div class="row">
+          <% for(let i=0;i<polls.length;i++) { %>
+              <div class="card text-center m-2">
+                  <div class="card-header">
+                      <h5 class="card-title"><%= polls[i].name %></h5>
+                  </div>
+                  <div class="card-body">                    
+                    <p class="card-text"><%= polls[i].description %></p>
+                  </div>
+                  <div class="card-footer text-muted d-flex justify-content-between">
+                    <div><%= polls[i].options.option1.votes + polls[i].options.option2.votes
+                      + polls[i].options.option3.votes + polls[i].options.option4.votes %>   Votes</div>
+                    <a href="/polls/<%= polls[i]._id %>" class="btn btn-primary">Vote</a>
+                </div>
+              </div>
+            <% } %>
+      </div>
+    </div>    
+  </body>
+</html>

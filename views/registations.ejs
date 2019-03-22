@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Magic Polls</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="">
+    <link rel="stylesheet" href="static/style.css">
+    <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.3.1.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  </head>
+  <body>
+    <nav class="navbar navbar-dark bg-dark">
+        <div class="navbar-brand">Magic Polls</div>
+        <div class="d-flex justify-content-end">
+            <a class="nav-link" href="/register">Register</a>
+            <form class="form-inline" action="/logIn" method="get">
+              <button class="btn btn-outline-success my-2 my-sm-0" type="submit">LogIn</button>
+            </form>
+        </div>
+    </nav>    
+    <div class="container mt-4">
+      <h2>Sign up</h2>
+      <form id="formRegistration" action="/register/new" method="post">
+          <div class="form-group">
+            <label for="exampleInputEmail1">Email address</label>
+            <input name="email" id="email" type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+            <small id="help-block-email" class="text-danger"></small>
+          </div>
+          <div class="form-group">
+            <label for="exampleInputPassword1">Password</label>
+            <input name="password" id="password" type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+            <small id="help-block-password" class="text-danger"></small>
+          </div>
+          <button type="submit" class="btn btn-primary">Submit</button>
+      </form>
+    </div>
+    <script src="static/app.js"></script>
+  </body>
+</html>
