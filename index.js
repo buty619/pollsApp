@@ -21,14 +21,14 @@ app.set("view engine", "ejs");
 app.set("views", "views");
 //  ----------
 
-app.get('/', async function(req, res){
-  try{
-      const polls = await Poll.find();
-      res.render("index",{polls});  
-    }catch(e){
-      console.error(e);
-  }
-});
+// app.get('/', async function(req, res){
+//   try{
+//       const polls = await Poll.find();
+//       res.render("index",{polls});  
+//     }catch(e){
+//       console.error(e);
+//   }
+// });
 
 
 app.listen(PORT, () => console.log("Inició en puerto .." + PORT));

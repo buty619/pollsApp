@@ -34,3 +34,12 @@ exports.logOut = async function(req, res){
     console.error(e);
   }  
 }
+
+exports.index = async function(req, res){
+  try{
+      const polls = await Poll.find();
+      res.render("index",{polls});  
+    }catch(e){
+      console.error(e);
+  }
+}
