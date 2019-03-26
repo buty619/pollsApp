@@ -23,15 +23,11 @@ app.set("views", "views");
 
 app.get('/', async function(req, res){
   try{
-      const polls = await Poll.find(function(err, notes) {
-        if (err) return console.error(err);
-        return notes;
-      });
+      const polls = await Poll.find();
       res.render("index",{polls});  
     }catch(e){
       console.error(e);
-  }  
-  res.render("index");
+  }
 });
 
 
