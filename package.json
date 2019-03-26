@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "index.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "MONGODB_URI=mongodb://localhost:27017/top_test jest --forceExit"
   },
   "author": "Cristian Buitrago",
   "license": "ISC",
@@ -15,5 +15,10 @@
     "ejs": "^2.6.1",
     "express": "^4.16.4",
     "mongoose": "^5.4.19"
+  },
+  "devDependencies": {
+    "jest": "^24.5.0",
+    "superagent": "^4.1.0",
+    "supertest": "^4.0.2"
   }
 }
