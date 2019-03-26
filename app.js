@@ -10,7 +10,7 @@ const cookieSession = require('cookie-session');
 app.use(cookieSession({secret:"Shh! It's a secret"}));
 
 //  ----------
-const PORT = process.env.PORT  || 3000;
+
 //mongoose.connect(process.env.MONGODB_URI, { useNewUrlParser: true });
 mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost:27017/top_dev', { useNewUrlParser: true });
 mongoose.connection.on("error", function(e) { console.error(e); });
