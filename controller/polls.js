@@ -3,10 +3,7 @@ const Poll = require("../model/Poll");
 
 exports.init = async (req,res) =>{
   try{
-    const polls = await Poll.find(function(err, notes) {
-      if (err) return console.error(err);
-      return notes;
-    });
+    const polls = await Poll.find();
     res.render("polls",{polls});  
   }catch(e){
     console.error(e);
