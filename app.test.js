@@ -45,7 +45,7 @@ request.agent.prototype._saveCookies = function(res) {
 
 const signIn = async (credentials) => {
   const agent = request.agent(app);
-  await agent.post('/login')
+  await agent.post('/logIn')
       .type("form")
       .send(credentials);
   return agent;
@@ -93,24 +93,24 @@ describe("POST /register", ()=>{
   });
 });
 
-// describe(" POST /polls/new", ()=>{
-//   test("create a polls and go to main page", async () => {    
-//     const credentials = { email: "pedro@gmail.com", password: bcrypt.hashSync("test1234") };
-//     const user = await User.create(credentials);
-//     const agent = await signIn(credentials);
-//     console.log(agent)
-//     const responce = await agent.post("/polls/new")
-//     .type("form")
-//     .send({name:"testName"})
-//     .send({description:"testDescription"})
-//     .send({Option1:"T1"})
-//     .send({Option2:"T2"})
-//     .send({Option3:"T3"})
-//     .send({Option4:"T4"});
+describe(" POST /polls/new", ()=>{
+  test("create a polls and go to main page", async () => {
+    const credentials = { email: "pedro@gmail.com", password: "test1234" };
+    const user = await User.create({ email: "pedro@gmail.com", password: bcrypt.hashSync("test1234") });
+    const agent = await signIn(credentials);
+    console.log(agent)
+    const responce = await agent.post("/polls/new")
+    .type("form")
+    .send({name:"testName"})
+    .send({description:"testDescription"})
+    .send({Option1:"T1"})
+    .send({Option2:"T2"})
+    .send({Option3:"T3"})
+    .send({Option4:"T4"});
 
-//     expect(await Poll.countDocuments({})).toBe(1);
-//   });
-// });
+    expect(await Poll.countDocuments({})).toBe(1);
+  });
+});
 
 // describe("GET /polls", () => {
 //   test("redirects to login if not authenticated", async () => {
@@ -129,7 +129,6 @@ describe("POST /register", ()=>{
 // });
 
 describe("RENDER AND CLICKS", () =>{
-  
   test("user can register and login", async () => {
     await page.goto("http://localhost:3000/");
     await page.click('a[href="/register"]');
