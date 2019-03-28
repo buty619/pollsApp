@@ -3,7 +3,6 @@ const User = require("../model/User");
 const Poll = require("../model/Poll");
 
 exports.new = (req,res) =>{
-  console.log("hola mundo");
   res.render("logIn");
 }
 
