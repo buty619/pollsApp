@@ -98,7 +98,6 @@ describe(" POST /polls/new", ()=>{
     const credentials = { email: "pedro@gmail.com", password: "test1234" };
     const user = await User.create({ email: "pedro@gmail.com", password: bcrypt.hashSync("test1234") });
     const agent = await signIn(credentials);
-    console.log(agent)
     const responce = await agent.post("/polls/new")
     .type("form")
     .send({name:"testName"})
