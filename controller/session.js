@@ -10,7 +10,7 @@ exports.create =  async function(req, res, next) {
   const email = req.body.email;
   const password = req.body.password;
   try {
-    const user = await User.authenticate(email, password);    
+    const user = await User.authenticate(email, password);
     if (user) {
       req.session.userId = user._id;
       return res.redirect("/polls");

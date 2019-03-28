@@ -8,8 +8,8 @@ var userSchema = mongoose.Schema({
 
 userSchema.statics.authenticate = async (email, password) => {
   // buscamos el usuario utilizando el email
-  const user = await mongoose.model("User").findOne({ email: email });
-  if (user) {
+  const user = await mongoose.model("User").findOne({ email: email });  
+  if (user) {   
     // si existe comparamos la contraseña
     return new Promise((resolve, reject) => {
       bcrypt.compare(password, user.password, (err, result) => {
