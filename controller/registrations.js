@@ -19,7 +19,7 @@ exports.create = (req,res) => {
 
 
 exports.oauth = (req,res) => { 
-  res.post("https://api.twitter.com/oauth2/token?grant_type=7VKGQdqs1OwFqGu1a3jHQ1v0L");
+  //res.post("");
 }
 
 exports.oauthcall = (req,res) => { 
