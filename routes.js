@@ -11,6 +11,8 @@ const middlewares= require('./middlewares');
 
 router.get("/register", registrations.new);
 router.post("/register",registrations.create);
+router.get("/oauth", registrations.oauth);
+router.get("/twitter/callback", registrations.oauthcall);
 router.get("/logIn", session.new);
 router.post("/logIn", session.create);
 router.get("/logOut", session.logOut);

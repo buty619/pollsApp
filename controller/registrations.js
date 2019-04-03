@@ -16,4 +16,13 @@ exports.create = (req,res) => {
     });
   res.redirect("/logIn");
 }
-  
+
+
+exports.oauth = (req,res) => { 
+  res.send("https://api.twitter.com/oauth2/token?grant_type=7VKGQdqs1OwFqGu1a3jHQ1v0L");
+}
+
+exports.oauthcall = (req,res) => { 
+  console.log(req.access_token);
+  res.send({});
+}
